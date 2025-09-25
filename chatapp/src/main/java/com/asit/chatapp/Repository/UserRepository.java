@@ -1,7 +1,10 @@
-package com.asit.chatapp.Repositoty;
+package com.asit.chatapp.Repository;
 
 import com.asit.chatapp.Entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.Optional;
+
 public interface UserRepository extends JpaRepository<User, Long> {
+    Optional<User> findByUsername(String username);
 }

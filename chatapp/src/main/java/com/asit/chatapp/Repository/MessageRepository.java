@@ -1,4 +1,4 @@
-package com.asit.chatapp.Repositoty;
+package com.asit.chatapp.Repository;
 
 import com.asit.chatapp.Entity.Message;
 import com.asit.chatapp.Entity.User;
@@ -8,6 +8,6 @@ import java.util.List;
 import java.util.Optional;
 
 public interface MessageRepository extends JpaRepository<Message, Long> {
-    Optional<Message> findBySenderAndReceiver(User sender, User receiver);
+    List<Message> findBySenderAndReceiver(User sender, User receiver);
     List<Message> findByReceiver(User receiver);
 }

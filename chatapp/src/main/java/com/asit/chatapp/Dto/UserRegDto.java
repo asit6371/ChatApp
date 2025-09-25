@@ -1,44 +1,24 @@
-package com.asit.chatapp.Entity;
+package com.asit.chatapp.Dto;
 
 import com.asit.chatapp.Status;
-import jakarta.persistence.*;
-import jakarta.persistence.Id;
-
-
 import java.time.LocalDateTime;
 
 
-@Entity
-@Table(name = "users")
-public class User {
+public class UserRegDto {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    @Column(nullable = false, unique = true)
     private String username;
-    @Column(nullable = false   )
     private String password;
     private LocalDateTime createdAt = LocalDateTime.now();
-    @Enumerated(EnumType.STRING)
     private Status status;
 
-    public User() { }
+    public UserRegDto() {
+    }
 
-    public User(Long id, String username, String password, LocalDateTime createdAt, Status status) {
-        this.id = id;
+    public UserRegDto(String username, String password, LocalDateTime createdAt, Status status) {
         this.username = username;
         this.password = password;
         this.createdAt = createdAt;
         this.status = status;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getUsername() {
